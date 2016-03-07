@@ -2,6 +2,8 @@
 
 In this resource you will learn how to send secret messages using a technique called the One-time pad.
 
+![One-time pad](https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NSA_DIANA_one_time_pad.tiff/lossless-page1-677px-NSA_DIANA_one_time_pad.tiff.png)
+
 When you're a secret agent, sending messages to your friends can be a tricky business. If the message is seen by your adversaries they'll know what you're up to, and you could be in trouble.
 
 Cryptography is a way of disguising the contents of your message, to make it harder for you adversaries to read. One of the first forms of cryptography was used by the Roman emperor, Julius Caesar, and is now called the *Caesar Cipher*.
@@ -37,7 +39,6 @@ They were wrong though, as there is no such thing as perfect cryptography. Thank
 
 A One-time pad (OTP) is a different method of encryption. When using an OTP, a string of random numbers are generated, and shared between Alice and Bob. Each letter of the message is then shifted by the corresponding number in the OTP. So each letter has it's own individual key! As long as Eve doesn't have the OTP, the message is **impossible** to decrypt.
 
-![One-time pad](https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NSA_DIANA_one_time_pad.tiff/lossless-page1-677px-NSA_DIANA_one_time_pad.tiff.png)
 
 ## Generating a One-time Pad
 
