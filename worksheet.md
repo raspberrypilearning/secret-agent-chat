@@ -2,9 +2,9 @@
 
 In this resource you will learn how to send secret messages using a technique called the One-time pad.
 
-When you're a secret agent, sending messages to your friends can be a tricky business. If the message is seen by you adversaries they'll know what you're upto.
+When you're a secret agent, sending messages to your friends can be a tricky business. If the message is seen by your adversaries they'll know what you're up to, and you could be in trouble.
 
-Cyrptography is a way of disguising the contents of your message, to make it harder for you adversaries to read. One of the first forms of cryptography was used by the Roman emperor, Julius Ceasar, and is now called the Ceasar Cipher.
+Cryptography is a way of disguising the contents of your message, to make it harder for you adversaries to read. One of the first forms of cryptography was used by the Roman emperor, Julius Caesar, and is now called the *Caesar Cipher*.
 
 Imagine Alice wants to send a secret message to Bob, without Eve knowing what the message says. Alice first picks a **key**. This will be a number, `3` for instance. Alice then tells Bob the key.
 
@@ -27,15 +27,21 @@ becomes the **ciphertext**...
 Phhw ph dw wkh sdun dw wkuhh
 ```
 
-The problem with this is that Eve can easily decrypt the message. She just needs to try to use every number between 1 and 26 as the key, and see which one makes sense. She could also look for words with 2 or 3 letters in them that occure a lot like `to, at, the, and`, then use these to find out what the key is.
+The problem with this is that Eve can easily decrypt the message. She just needs to try to use every number between 1 and 26 as the key, and see which one makes sense. She could also look for words with 2 or 3 letters in them that occur a lot like `to, at, the, and`, then use these to find out what the key is.
 
-During World War II the Germans though they had developed a perfect method of encrypting messages using something called an Enigma machine. They were wrong though, as there is no such thing as perfect cryptography. Thanks to some clever Polish mathematicians and a British mathematician called Alan Turing, they enigma messages were decrypted, and this helped the allies win the war.
+During World War II the German military thought they had developed a perfect method of encrypting messages using something called an [Enigma machine](https://simple.wikipedia.org/wiki/Enigma_%28machine%29).
 
-A One-time pad (OTP) is a different method of encryption. When using an OTP, a string of random numbers are generated, and shared between Alice and Bob. Each letter of the message is then shifted by the corresponding number in the OTP. As long as Eve doesn't have the OTP, the message is **impossible** to decrypt.
+![Engima](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/EnigmaMachineLabeled.jpg/576px-EnigmaMachineLabeled.jpg)
+
+They were wrong though, as there is no such thing as perfect cryptography. Thanks to some clever Polish mathematicians and a British mathematician called Alan Turing, they enigma messages were decrypted, and this helped the allies win the war.
+
+A One-time pad (OTP) is a different method of encryption. When using an OTP, a string of random numbers are generated, and shared between Alice and Bob. Each letter of the message is then shifted by the corresponding number in the OTP. So each letter has it's own individual key! As long as Eve doesn't have the OTP, the message is **impossible** to decrypt.
+
+![One-time pad](https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NSA_DIANA_one_time_pad.tiff/lossless-page1-677px-NSA_DIANA_one_time_pad.tiff.png)
 
 ## Generating a One-time Pad
 
-Open a new Python file in your prefered editor.
+Open a new Python file in your preferred editor.
 
 1. The first thing you need is some random numbers, so import the `randint` method from the `random` module.
 
@@ -49,13 +55,13 @@ Open a new Python file in your prefered editor.
 	ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
 	```
 
-1. Next you can create a function to generate an OTP. It will need to have parameters for the number of sheets in the pad and then length of each sheet.
+1. Next you can create a function to generate an OTP. It will need to have parameters for the number of sheets in the pad and the number of characters that each sheet can encrypt.
 
 	```python
 	def generateOTP(sheets, length):
 	```
 
-1. Now, for every sheet, a new file needs to be created. Each file will be saved with the format `otp0.txt, otp1.txt, otp2.txt`
+1. Now, for every sheet, a new file needs to be created. Each file will be saved with the format `otp0.txt, otp1.txt, otp2.txt`. You can use a `for` loop for this.
 
 	```python
 	def generate_otp(sheets, length):
@@ -63,15 +69,15 @@ Open a new Python file in your prefered editor.
 			with open("otp" + str(sheet) + ".txt","w") as f:
     ```
 
-1. Finally for this function, you can add in the lines of code that will write out the random numbers to the file.
+1. Finally for this function, you can add in two lines of code that will write out the random numbers to the file. Here, you are adding a `\n` character to the end of each number, so it is written to a newline.
 
-```python
-def generate_otp(sheets, length):
-    for sheet in range(sheets):
-        with open("otp" + str(sheet) + ".txt","w") as f:
-            for i in range(length):
-                f.write(str(randint(0,26))+"\n")
-```
+	```python
+	def generate_otp(sheets, length):
+		for sheet in range(sheets):
+			with open("otp" + str(sheet) + ".txt","w") as f:
+				for i in range(length):
+					f.write(str(randint(0,26))+"\n")
+	```
 
 1. Test your code by saving (`ctrl+s`) and running (`F5`). Then type `generate_OTP(5, 100)` into the **shell**
 
@@ -81,7 +87,7 @@ def generate_otp(sheets, length):
 
 ## Loading a sheet from the OTP
 
-Now that the OTP has been generated, you need a way to load a sheet, and store the data in a list.
+Now that the OTP has been generated, you need a way to load a sheet, and store all the numbers in it into a list.
 
 1. First you can create a function to open a file.
 
@@ -99,7 +105,7 @@ Now that the OTP has been generated, you need a way to load a sheet, and store t
 		return contents
 	```
 
-1. Test this function out by saving and running your code again. Then in the **shell** you can type the following:
+1. Test this function by saving and running your code again. Then in the **shell** you can type the following:
 
 ```python
 sheet = load_sheet('otp0.txt')
@@ -111,7 +117,7 @@ print(sheet)
 
 ## Writing a secret message
 
-The next function is a really simple one, that gets the user to type in the message that will be encrypted. The only small addition is to convert all the letters to *lowercase* as this will make it easier to encrypt, without really losing any meaning.
+The next function is a really simple one. It asks the user to type in the message that will be encrypted. The only small addition is to convert all the letters to *lowercase* as this will make it easier to encrypt, without really losing any meaning.
 
 ```python
 def get_plain_text():
@@ -121,7 +127,7 @@ def get_plain_text():
 
 ## Loading and Saving the messages
 
-Next you're going to need a method of opening messages written to you, and saving the messages that have been encryped. Again, you're going to need a couple of fairly basic functions, one to open and read a file, the other to open and write a file.
+Next you're going to need a method of opening messages written to you, and saving the messages that have been encrypted. Again, you're going to need a couple of fairly basic functions, one to open and read a file, the other to open and write a file.
 
 ```python
 def load_file(filename):
@@ -144,7 +150,7 @@ Now comes the more interesting part. You're going to encrypt a message using a s
 	def encrypt(plaintext, sheet):
 	```
 
-1. Once you start encrypting the plaintext, you will need to store the cipher text. You can use an empty string to do this.
+1. Once you start encrypting the plaintext, you will need to store the ciphertext. You can use an empty string to do this.
 
 	```python
 	def encrypt(plaintext, sheet):
@@ -170,10 +176,10 @@ Now comes the more interesting part. You're going to encrypt a message using a s
 	```
 
 1. The next part is quite tricky to understand.
-    2. Firstly you need to find the position of the plaintext character in the alphabet. `ALPHABET.index(character)`
-    3. Then you need to add this number to the value from the equivalent position on the sheet from the OTP. `int(sheet[position])`
-    4. This new number needs converting back into a letter. So if the new number was `0` it would become `a`, if it was `5` it would become `f`. What if the number is greater than 25 though? If the number is `26` it needs to be changed to `0` and if it's `30` it should be changed to `4`. To do this we can use the **modulo** operator, which finds the remainder after a division.
-	5. Lastly the number is converted to a letter.
+    - Firstly you need to find the position of the plaintext character in the alphabet. `ALPHABET.index(character)`
+    - Then you need to add this number to the value from the equivalent position on the sheet from the OTP. `int(sheet[position])`
+    - This new number needs converting back into a letter. So if the new number was `0` it would become `a`, if it was `5` it would become `f`. What if the number is greater than 25 though? If the number is `26` it needs to be changed to `0` and if it's `30` it should be changed to `4`. To do this we can use the **modulo** operator (`%`), which finds the remainder after a division.
+	- Lastly the number is converted to a letter.
 
 1. Putting that altogether into your function, it would look like this:
 
@@ -231,15 +237,15 @@ def decrypt(ciphertext, sheet):
 
 ## Testing decryption.
 
-Let's test the decryption. Save and run your code, then type the following into the **shell**
+1. Let's test the decryption. Save and run your code, then type the following into the **shell**
 
-```python
-sheet = load_sheet('otp0.txt')
-ciphertext = encrypt('Nobody can read this - hehehe', sheet)
-ciphertext
-```
+	```python
+	sheet = load_sheet('otp0.txt')
+	ciphertext = encrypt('Nobody can read this - hehehe', sheet)
+	ciphertext
+	```
 
-You should see the encrypted text. Then to decrypt, just type the following line
+1. You should see the encrypted text. Then to decrypt, just type the following line
 
 ```python
 decrypt(ciphertext, sheet)
@@ -249,15 +255,15 @@ decrypt(ciphertext, sheet)
 
 ## Adding a menu
 
-Although you now have working OTP generation, encryption and decryption, you should make the program a little easier for the user. This should enclude saving the encrypted text, so that it can be emailed to your friend.
+Although you now have working OTP generation, encryption and decryption, you should make the program a little easier for the user. This should include saving the encrypted text, so that it can be emailed to your friend.
 
-1. You can begin by definining a new function, for the menu.
+1. You can begin by defining a new function, for the menu.
 
 	```python
 	def menu():
 	```
 
-1. You're going to give the user 4 choices in the menu, and it should just loop if their choice isn't 1,2,3 or 4.
+1. You're going to give the user 4 choices in the menu, and it should just loop if their choice isn't 1, 2, 3 or 4.
 
 	```python
 	def menu():
@@ -304,7 +310,7 @@ Although you now have working OTP generation, encryption and decryption, you sho
 		save_file(filename, ciphertext)
 	```
 
-1. If they choose option3, then you need to get the name of the sheet used to encrypt the file and the name fo the file to be decrypted. The file can then be opened, decrypted and the contents printed out.
+1. If they choose option3, then you need to get the name of the sheet used to encrypt the file and the name for the file to be decrypted. The file can then be opened, decrypted and the contents printed out.
 
 	```python
 	elif choice == '3':
@@ -364,3 +370,124 @@ Although you now have working OTP generation, encryption and decryption, you sho
 				choice = '0'
 	```
 
+1. To finish off the code, you just need to add a call to the `menu()` function.
+
+```python
+menu()
+```
+
+## Full code listing
+
+Your full code should look like this:
+
+```python
+from random import randint
+
+ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
+
+def generate_otp(sheets, length):
+    for sheet in range(sheets):
+        with open("otp" + str(sheet) + ".txt","w") as f:
+            for i in range(length):
+                f.write(str(randint(0,26))+"\n")
+
+def load_sheet(filename):
+    with open(filename, "r") as f:
+        contents = f.read().splitlines()
+    return contents
+
+def get_plaintext():
+    plaintext = input('Please type your message ')
+    return plaintext.lower()
+
+def load_file(filename):
+    with open(filename, "r") as f:
+        contents = f.read()
+    return contents
+
+def save_file(filename, data):
+    with open(filename, 'w') as f:
+        f.write(data)
+
+def encrypt(plaintext, sheet):
+    ciphertext = ''
+    for position, character in enumerate(plaintext):
+        if character not in ALPHABET:
+            ciphertext += character
+        else:
+            encrypted = (ALPHABET.index(character) + int(sheet[position])) % 26
+            ciphertext += ALPHABET[encrypted]
+    return ciphertext
+
+def decrypt(ciphertext, sheet):
+    plaintext = ''
+    for position, character in enumerate(ciphertext):
+        if character not in ALPHABET:
+            plaintext += character
+        else:
+            decrypted = (ALPHABET.index(character) - int(sheet[position])) % 26
+            plaintext += ALPHABET[decrypted]
+    return plaintext
+
+def menu():
+    choices = ['1', '2', '3', '4']
+    choice = '0'
+    while True:
+        while choice not in choices:
+            print('What would you like to do:')
+            print('1. Generate One-time pads')
+            print('2. Encrypt a message')
+            print('3. Decrypt a message')
+            print('4. Quit the program')
+            choice = input('Please type 1, 2, 3 or 4 and press Enter ')
+            if choice == '1':
+                sheets = int(input('How many One-time Pads would you like to generate '))
+                length = int(input('What will be your maximum message length '))
+                generate_otp(sheets, length)
+            elif choice == '2':
+                filename = input('Type in the filename of the OTP you want to use? ')
+                sheet = load_sheet(filename)
+                plaintext = get_plaintext()
+                ciphertext = encrypt(plaintext, sheet)
+                filename = input('What will be the name of the encrypted file? ')
+                save_file(filename, ciphertext)
+            elif choice == '3':
+                filename = input('Type in the filename of the OTP you want to use. ')
+                sheet = load_sheet(filename)
+                filename = input('Type in the name of the file to be decrypted. ')
+                ciphertext = load_file(filename)
+                plaintext = decrypt(ciphertext, sheet)
+                print('The message reads:')
+                print('')
+                print(plaintext)
+            elif choice == '4':
+                exit()
+            choice = '0'
+
+
+menu()
+```
+
+## Testing your program
+Use the script to generate an OTP, encrypt a message and then decrypt the same message, to ensure that it is working correctly.
+
+Here is an example:
+
+![script output](images/screen5.png)
+
+## Using the program
+
+While a One-time pad offers perfect secrecy, you still have to be careful if you want to remain really secure, and there are some issues with this program.
+
+1. To send encrypted messages to each other, you can use email, SMS or even social media such as Facebook or Twitter. It won't even matter if your posts are public, as the only person who could decrypt the message is your friend.
+1. Once you've generated your OTP (say, by generating 100 sheets), you need to transfer them to the person you want to communicate with. You can't send them electronically (say by email) as this is insecure. Probably the most secure method is giving them to your friend on storage device, such as an SD card or USB flash memory.
+1. The OTP method is only secure, if you and your friend keep the OTP secure.
+1. You and your friend need to be sure which OTP you are using. The best way of doing this is by starting with `otp0.txt` and then deleting it when you've encrypted or decrypted a message. You can then progress to using `otp1.txt`.
+1. The OTP relies on the randomness of the random number generator. If the generator is not truly random, then the OTP could be cracked. Python's `random` module is probably not the best way of generating random numbers.
+1. Your message can't be longer than the length of the sheet from the OTP. If you're not sure how long your messages will be, it is better to generate large sheets, just in case.
+
+## What Next?
+
+1. Can you alter the program so that capital letters are preserved?
+1. Can you alter the program so that punctuation is also encrypted?
+1. Can you make your program delete the sheet from the OTP, once it has been used to encrypt or decrypt some text?
