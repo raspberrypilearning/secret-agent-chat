@@ -1,1 +1,1 @@
-In this resource you will make a something do a something so that your something can do something and use something to control the something.
+In this resource you will learn how to create and use an encryption technique known as the One-time pad. This method of encryption will allow you to send secret messages to your friends, and so long as you are careful, the messages will be *unbreakable*
