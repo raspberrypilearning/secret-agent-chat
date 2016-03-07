@@ -33,7 +33,7 @@ During World War II the German military thought they had developed a perfect met
 
 ![Engima](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/EnigmaMachineLabeled.jpg/576px-EnigmaMachineLabeled.jpg)
 
-They were wrong though, as there is no such thing as perfect cryptography. Thanks to some clever Polish mathematicians and a British mathematician called Alan Turing, they enigma messages were decrypted, and this helped the allies win the war.
+They were wrong though, as there is no such thing as perfect cryptography. Thanks to some clever Polish mathematicians and a British mathematician called Alan Turing, the enigma messages were decrypted, and this helped the allies win the war.
 
 A One-time pad (OTP) is a different method of encryption. When using an OTP, a string of random numbers are generated, and shared between Alice and Bob. Each letter of the message is then shifted by the corresponding number in the OTP. So each letter has it's own individual key! As long as Eve doesn't have the OTP, the message is **impossible** to decrypt.
 
