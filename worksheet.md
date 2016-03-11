@@ -59,7 +59,7 @@ Open a new Python file in your preferred editor.
 1. Next you can create a function to generate an OTP. It will need to have parameters for the number of sheets in the pad and the number of characters that each sheet can encrypt.
 
 	```python
-	def generateOTP(sheets, length):
+	def generate_otp(sheets, length):
 	```
 
 1. Now, for every sheet, a new file needs to be created. Each file will be saved with the format `otp0.txt, otp1.txt, otp2.txt`. You can use a `for` loop for this.
@@ -80,7 +80,7 @@ Open a new Python file in your preferred editor.
 					f.write(str(randint(0,26))+"\n")
 	```
 
-1. Test your code by saving (`ctrl+s`) and running (`F5`). Then type `generate_OTP(5, 100)` into the **shell**
+1. Test your code by saving (`ctrl+s`) and running (`F5`). Then type `generate_otp(5, 100)` into the **shell**
 
 1. If you open up your file browser, you should see 5 new files have been created. Open one of them up and you'll see a column of random numbers. These files are collectively called your One-time pad.
 
@@ -209,9 +209,7 @@ Now comes the more interesting part. You're going to encrypt a message using a s
 		return ciphertext
 	```
 
-## Testing the encryption
-
-To test your function you can save and run your code and then type the following into the **shell**.
+1. To test your function you can save and run your code and then type the following into the **shell**.
 
 ```python
 sheet = load_sheet('otp0.txt')
@@ -235,8 +233,6 @@ def decrypt(ciphertext, sheet):
             plaintext += ALPHABET[decrypted]
     return plaintext
 ```
-
-## Testing decryption.
 
 1. Let's test the decryption. Save and run your code, then type the following into the **shell**
 
