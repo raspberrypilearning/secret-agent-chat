@@ -50,6 +50,8 @@ Open a new Python file in your preferred editor.
 	from random import randint
 	```
 
+1. It is worth noting, that if we were real secret agents, then using `random` might be a little insecure. [os.urandom](https://docs.python.org/3/library/os.html#os.urandom) is a much more secure way of generating random numbers.
+
 1. Later on you're going to need the alphabet as well, so it's best to declare this constant now:
 
 	```python
