@@ -382,7 +382,7 @@ menu()
 
 Your full code should look like this:
 
-	```python
+	python
 	from random import randint
 
 	ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
@@ -468,7 +468,7 @@ Your full code should look like this:
 
 
 	menu()
-	```
+	
 
 
 1. Use the script to generate an OTP, encrypt a message and then decrypt the same message, to ensure that it's working correctly. Here's an example:
