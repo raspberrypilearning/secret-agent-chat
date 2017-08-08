@@ -1,0 +1,29 @@
+---
+title: Secret Agent Chat
+hero_image: images/banner.png
+description: Learn how to send unbreakable encrypted messages with Python
+original_url: https://raspberrypi.org/learning/secret-agent-chat
+theme: red
+duration: 2
+listed: true
+ingredient: false
+copyedit: true
+curriculum: creator, design-0, programming-0, phys-comp-0, manufacture-0, community-0
+interests: ''
+technologies: rpi, physical computing, python
+site_areas: ''
+steps:
+- title: Introduction
+- title: What you will need
+- title: Secret agent chat
+- title: Generating a one-time pad
+- title: Loading a sheet from the OTP
+- title: Writing a secret message
+- title: Loading and saving the messages
+- title: Encrypting a message
+- title: Decrypting messages
+- title: Adding a menu
+- title: Full code listing
+- title: Using the program
+- title: What next?
+
