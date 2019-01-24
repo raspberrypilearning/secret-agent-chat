@@ -1,6 +1,6 @@
 ## Generating a one-time pad
 
-Open a new Python file in your preferred editor.
+Open a new Python file in Idle or Mu.
 
 - The first thing you need is some random numbers, so import the `randint` method from the `random` module:
 
