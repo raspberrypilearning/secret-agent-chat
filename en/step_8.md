@@ -37,7 +37,7 @@ Now comes the fun part: you're going to encrypt a message using a sheet from the
 
     - Firstly, you need to find the position of the plaintext character in the alphabet - `ALPHABET.index(character)`.
     - Then you need to add this number to the value from the equivalent position on the sheet from the OTP - `int(sheet[position])`.
-    - This new number needs converted back into a letter. If the new number was `0` it would become `a`, if it was `5` it would become `f` and so on. What if the number is greater than 25, though? If the number is `26` it needs to be changed to `0`, and if it's `30` it should be changed to `4`. To do this we can use the **modulo** operator (`%`), which finds the remainder after a division.
+    - This new number needs to be converted back into a letter. If the new number was `0` it would become `a`, if it was `5` it would become `f` and so on. What if the number is greater than 25, though? If the number is `26` it needs to be changed to `0`, and if it's `30` it should be changed to `4`. To do this we can use the **modulo** operator (`%`), which finds the remainder after a division.
     - Lastly, the number is converted to a letter.
 
 - Putting that all together into your function, it would look like this:
