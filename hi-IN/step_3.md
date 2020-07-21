@@ -1,42 +1,42 @@
-## Secret agent chat
+## गुप्त जासूस बातचीत(Secret Agent Chat)
 
-In this resource you will learn how to send secret messages using a technique called the one-time pad.
+इस संसाधन में आप सीखेंगे कि वन-टाइम पैड नाम की एक तकनीक का उपयोग करके गुप्त संदेश कैसे भेजें।
 
 ![One-time pad](https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/NSA_DIANA_one_time_pad.tiff/lossless-page1-677px-NSA_DIANA_one_time_pad.tiff.png)
 
-When you're a secret agent, sending messages to your friends can be a tricky business. If the message is seen by your enemies they'll know what you're up to, and you could be in trouble.
+जब आप एक गुप्त जासूस होते हैं, तो अपने दोस्तों को संदेश भेजना एक मुश्किल काम हो सकता है। यदि संदेश आपके दुश्मनों द्वारा देखा जाता है, तो उन्हें पता चल जाएगा कि आप क्या कर रहे हैं, और आप परेशानी में पड़ सकते हैं।
 
-Cryptography is a way of disguising the contents of your message, to make it harder for your enemies to read. One of the first forms of cryptography was used by the Roman emperor Julius Caesar, and is now called the *Caesar Cipher*.
+क्रिप्टोग्राफी (कूटलिपि विद्या) आपके संदेश की सामग्री को बदलने का एक तरीका है, जिससे आपके दुश्मनों को पढ़ना मुश्किल हो जाता है। क्रिप्टोग्राफी के पहले रूपों में से एक का उपयोग रोमन सम्राट जूलियस सीज़र द्वारा किया गया था, और अब इसे *सीज़र सिफर (Caesar Cipher)* कहा जाता है।
 
-Imagine Alice wants to send a secret message to Bob, without Eve knowing what the message says. Alice first picks a **key**, which will be a number such as `3`. Alice then tells Bob the key.
+कल्पना कीजिए कि ऐलिस, बॉब को एक गुप्त संदेश भेजना चाहता है, बिना ईव को पता चले कि यह संदेश क्या कहता है। ऐलिस पहले एक **कुंजी (key)** चुनता है, जो `3` जैसा एक नंबर होगा। ऐलिस फिर बॉब को कुंजी बताता है।
 
-Whenever Alice wants to write a message, all she needs to do is shift each of the letters in her message forward in the alphabet by 3 places:
+जब भी ऐलिस संदेश लिखना चाहता है, तो उसे अपने संदेश में प्रत्येक अक्षर को वर्णमाला में 3 स्थानों से स्थानांतरित करना होगा।
 
 ```
 abcdefghijklmnopqrstuvwxyz
 defghijklmnopqrstuvwxyzabc
 ```
 
-So the **plaintext**...
+तो **plaintext**...
 
 ```
 Meet me at the park at three
 ```
 
-becomes the **ciphertext**...
+**ciphertext** बन जाता है...
 
 ```
 Phhw ph dw wkh sdun dw wkuhh
 ```
 
-The problem with this is that Eve can easily decrypt the message. She just needs to try using every number between 1 and 26 as the key, and see which one makes sense. She could also look for words with 2 or 3 letters in them that occur a lot, like 'to', 'at', 'the' or 'and', then use these to find out what the key is.
+इसके साथ समस्या यह है कि ईव संदेश को आसानी से डिक्रिप्ट कर सकती है। उसे सिर्फ 1 से 26 के बीच की प्रत्येक संख्या का उपयोग कुंजी के रूप में करने की कोशिश करनी है, और देखें कि कौन सा समझ में आता है। वह उन 2 या 3 अक्षरों वाले शब्दों की तलाश भी कर सकती है, जो बहुत बार आते हैं, जैसे 'to', 'at', 'the' अथवा 'and', फिर इनका उपयोग करके पता करें कि कुंजी क्या है।
 
-During World War II the German military thought they had developed a perfect method of encrypting messages, using something called an [Enigma machine](https://simple.wikipedia.org/wiki/Enigma_%28machine%29).
+द्वितीय विश्व युद्ध के दौरान जर्मन सेना ने सोचा था कि उन्होंने संदेशों को एन्क्रिप्ट करने का एक सही तरीका विकसित किया है, उसका उपयोग करके जिसे कुछ [एनिग्मा मशीन (Enigma machine)](https://simple.wikipedia.org/wiki/Enigma_%28machine%29) कहा जाता है।
 
-![Engima](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/EnigmaMachineLabeled.jpg/576px-EnigmaMachineLabeled.jpg)
+![Engima(एनिग्मा)](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/EnigmaMachineLabeled.jpg/576px-EnigmaMachineLabeled.jpg)
 
-The German military were wrong though. Thanks to some clever Polish mathematicians and a British mathematician called Alan Turing, the Enigma messages were decrypted, and this helped the Allies win the war.
+हालांकि जर्मन सेना गलत थी। कुछ चतुर पोलिश गणितज्ञों और एक ब्रिटिश गणितज्ञ जिसे एलन ट्यूरिंग कहा जाता है, उनका धन्यवाद। उन्होंने एनिग्मा संदेशों को डिक्रिप्ट किया था, और इससे मित्र राष्ट्रों को युद्ध जीतने में मदद मिली।
 
-A one-time pad (OTP) is a different method of encryption. When using an OTP, a string of random numbers are generated and shared between Alice and Bob. Each letter of the message is then shifted by the corresponding number in the OTP, so each letter has its own individual key! As long as Eve doesn't have the OTP, the message is **impossible** to decrypt.
+वन-टाइम पैड (OTP) एन्क्रिप्शन का एक अलग तरीका है। ओटीपी का उपयोग करते समय, यादृच्छिक (अनोखी) संख्याओं की एक शृंखला(string) उत्पन्न होती है और ऐलिस तथा बॉब के बीच साझा की जाती है। संदेश के प्रत्येक अक्षर को OTP में इसी संख्या द्वारा स्थानांतरित किया जाता है, इसलिए प्रत्येक अक्षर की अपनी अलग-अलग कुंजी होती है! जब तक ईव के पास ओटीपी नहीं होता, तब तक संदेश को डिक्रिप्ट करना **असंभव** है।
 
 
