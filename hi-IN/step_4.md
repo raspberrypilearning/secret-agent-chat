@@ -1,28 +1,28 @@
-## Generating a one-time pad
+## वन-टाइम पैड बनाना
 
-Open a new Python file in Idle or Mu.
+Idle या Mu में एक नई Python फ़ाइल खोलें।
 
-- The first thing you need is some random numbers, so import the `randint` method from the `random` module:
+- पहली चीज़ जो आपको चाहिए वह हैं, कुछ क्रमरहित(अनोखी) संख्याएँ। इसलिए `random` मॉड्यूल (module) से `randint` विधि (method) आयात (import) करें:
 
     ```python
     from random import randint
     ```
 
-- It is worth noting, that if we were real secret agents, then using `random` might be a little insecure. [os.urandom](https://docs.python.org/3/library/os.html#os.urandom) is a much more secure way of generating random numbers.
+- यह ध्यान देने योग्य है कि अगर हम असली गुप्त जासूस होते है, तो `random` का उपयोग थोड़ा असुरक्षित हो सकता है। [os.urandom](https://docs.python.org/3/library/os.html#os.urandom) क्रमरहित संख्या उत्पन्न करने का ज्यादा सुरक्षित तरीका है।
 
-- Later on you're going to need the alphabet as well, so it's best to declare this constant now:
+- बाद में आपको वर्णमाला की भी आवश्यकता होती है, इसलिए इस कॉन्स्टन्ट (constant) को अब घोषित (declare) करना सबसे अच्छा है:
 
     ```python
     ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
     ```
 
-- Next, you can create a function to generate an OTP. It will need to have parameters for the number of sheets in the pad and the number of characters that each sheet can encrypt:
+- आगे, आप OTP उत्पन्न करने के लिए एक फ़ंक्शन (function) बना सकते हैं। पैड (pad) में शीट (sheets) की संख्या और प्रत्येक शीट को एन्क्रिप्ट करने वाले वर्णों की संख्या के लिए पैरामीटर (parameters) होना आवश्यक है:
 
     ```python
     def generate_otp(sheets, length):
     ```
 
-- Now a new file needs to be created for every sheet. Each file will be saved as `.txt` with the following naming convention: `otp0.txt, otp1.txt, otp2.txt`. You can use a `for` loop for this:
+- अब हर शीट के लिए एक नई फाइल बनानी होगी। प्रत्येक फ़ाइल को `.txt` के रूप में सहेजा जाएगा, निम्नलिखित नामकरण रूढ़ि के साथ: `otp0.txt, otp1.txt, otp2.txt`। ऐसा करने के लिए आप `for` लूप का उपयोग कर सकते हैं।
 
     ```python
     def generate_otp(sheets, length):
@@ -30,7 +30,7 @@ Open a new Python file in Idle or Mu.
             with open("otp" + str(sheet) + ".txt","w") as f:
     ```
 
-- Finally for this function, you can add in two lines of code that will write out the random numbers to the file. Here, you're adding a `\n` character to the end of each number, so it's written to a new line.
+- अंत में इस फ़ंक्शन के लिए, आप कोड की दो पंक्तियां जोड़ सकते हैं, जो फ़ाइल में यादृच्छिक संख्याएं लिखेंगी। यहां, आप प्रत्येक संख्या के अंत में `\n` वर्ण जोड़ रहे हैं, इसलिए यह एक नई पंक्ति में लिखा गया है।
 
     ```python
     def generate_otp(sheets, length):
@@ -41,9 +41,9 @@ Open a new Python file in Idle or Mu.
     ```
 
 
-- Test your code by saving (`ctrl+s`) and running (`F5`). Then type `generate_otp(5, 100)` into the **shell**
+- अपना कोड सहेजकर (`ctrl+s`) और चला कर (`F5`) परीक्षण करें। फिर **shell** में `generate_otp(5, 100)` लिखे।
 
-- If you open your file browser, you should see 5 new files have been created. Open one of them and you'll see a column of random numbers. These files are collectively called your one-time pad.
+- यदि आप अपना फ़ाइल ब्राउज़र खोलते हैं, तो आपको 5 नई फाइलें बनी हुई दिखनी चाहिए। उनमें से एक खोलें और आपको यादृच्छिक संख्याओं की एक सूची दिखाई देगी। इन फाइलों को सामूहिक रूप से आपका वन-टाइम पैड कहा जाता है।
 
-![files](images/screen1.png)
+![फ़ाइलें(files)](images/screen1.png)
 
