@@ -1,6 +1,6 @@
-## Loading and saving the messages
+## संदेशों को लोड करना और सहेजना
 
-Next, you're going to need a method of opening messages written to you, and saving the messages that have been encrypted. Again, you're going to need a couple of fairly basic functions - one to open and read a file, the other to open and write a file:
+इसके बाद, आपको लिखे गए संदेशों को खोलने और एन्क्रिप्ट किए गए संदेशों को सहेजने की एक विधि की आवश्यकता होगी। फिर से, आपको कुछ काफी सरल फ़ंक्शन की आवश्यकता होगी - एक फ़ाइल को खोलने और पढ़ने के लिए, दूसरा किसी फ़ाइल को खोलने और लिखने के लिए:
 
 ```python
 def load_file(filename):
