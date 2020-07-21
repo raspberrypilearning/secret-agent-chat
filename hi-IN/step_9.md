@@ -1,6 +1,6 @@
-## Decrypting messages
+## संदेशों को डिक्रिप्ट करना
 
-When communicating with your friends, you'll need a way to decrypt the message as well. The next function is very similar to the previous one, but instead of adding the value from the one-time pad's sheet, you just need to subtract the value:
+अपने दोस्तों के साथ संवाद करते समय, आपको संदेश को डिक्रिप्ट करने के तरीके की भी आवश्यकता होगी। अगला फ़ंक्शन पिछले के समान है, लेकिन वन-टाइम पैड की शीट से मूल्य को जोड़ने के बजाय, आपको बस मूल्य को घटाना होगा:
 
 ```python
 def decrypt(ciphertext, sheet):
@@ -14,7 +14,7 @@ def decrypt(ciphertext, sheet):
     return plaintext
 ```
 
-- Let's test the decryption. Save and run your code, then type the following into the **shell**
+- चलो डिक्रिप्शन का परीक्षण करें। अपना कोड सहेजें और चलाएं, फिर **shell** में निम्नलिखित टाइप करें
 
     ```python
     sheet = load_sheet('otp0.txt')
@@ -22,11 +22,11 @@ def decrypt(ciphertext, sheet):
     ciphertext
     ```
 
-- You should see the encrypted text. To decrypt, just type the following line:
+- आपको एन्क्रिप्टेड अक्षर दिखने चाहिए। डिक्रिप्ट करने के लिए, बस निम्नलिखित पंक्ति टाइप करें:
 
 ```python
 decrypt(ciphertext, sheet)
 ```
 
-![decrypt output](images/screen4.png)
+![डिक्रिप्ट आउटपुट(decrypt output)](images/screen4.png)
 
