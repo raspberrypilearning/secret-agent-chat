@@ -1,11 +1,11 @@
-## Using the program
+## प्रोग्राम का उपयोग करना
 
-While a one-time pad offers perfect secrecy, you still have to be careful if you want to remain really secure, and there are some issues with this program.
+जबकि वन-टाइम पैड सही गोपनीयता प्रदान करता है, आपको अभी भी सावधान रहना होगा यदि आप वास्तव में सुरक्षित रहना चाहते हैं, और इस प्रोग्राम की कुछ समस्याएं हैं।
 
-- To send encrypted messages to each other, you can use email, SMS or even social media such as Facebook or Twitter. It won't even matter if your posts are public, as the only person who could decrypt the message is your friend.
-- Once you've generated your OTP, such as by generating 100 sheets, you need to transfer them to the person you want to communicate with. You can't send them electronically, such as by email, as this is insecure. Probably the most secure method is giving them to your friend on a storage device, such as an SD card or USB flash memory.
-- The OTP method is only secure if you and your friend *keep the OTP secure*.
-- You and your friend need to be sure which OTP you're using. The best way of doing this is by starting with `otp0.txt` and then deleting it when you've encrypted or decrypted a message. You can then progress to using `otp1.txt`.
-- The OTP relies on the randomness of the random number generator. If the generator isn't truly random, then the OTP could be cracked. Python's `random` module is probably not the best way of generating random numbers.
-- Your message can't be longer than the length of the sheet from the OTP. If you're not sure how long your messages will be, it's better to generate large sheets just in case.
+- एक दूसरे को एन्क्रिप्टेड संदेश भेजने के लिए, आप ईमेल, एसएमएस (SMS) या यहां तक कि सोशल मीडिया जैसे फेसबुक या ट्विटर का उपयोग कर सकते हैं। इससे कोई फर्क नहीं पड़ेगा यदि आपके पोस्ट सार्वजनिक हैं, क्योंकि एकमात्र व्यक्ति जो संदेश को डिक्रिप्ट कर सकता है, वह आपका मित्र है।
+- एक बार जब आप अपना OTP जेनरेट कर लेते हैं, जैसे कि 100 शीट बना कर, आपको उन्हें उस व्यक्ति को ट्रांसफर करना होगा, जिसके साथ आप संवाद करना चाहते हैं। आप उन्हें इलेक्ट्रॉनिक रूप से नहीं भेज सकते, जैसे कि ईमेल द्वारा, क्योंकि यह असुरक्षित है। संभवतः सबसे सुरक्षित तरीका, आपके मित्र को स्टोरेज डिवाइस से देना है, जैसे कि एसडी(SD) कार्ड या यूएसबी(USB) फ्लैश मेमोरी।
+- OTP विधि केवल तभी सुरक्षित है जब आप और आपका मित्र *OTP को सुरक्षित रखते है* ।
+- आपको और आपके मित्र को यह सुनिश्चित करना होगा कि आप किस OTP का उपयोग कर रहे हैं। इसे करने का सबसे अच्छा तरीका `otp0.txt` से शुरू करना है और फिर इसे हटा देना जब आप संदेश एन्क्रिप्ट या डिक्रिप्ट कर लेते है। फिर आगे आप `otp1.txt` का उपयोग कर सकते है।
+- OTP यादृच्छिक संख्या बनाने की यादृच्छिकता पर निर्भर करता है। यदि जनरेटर (यादृच्छिक संख्या बनाने वाला) वास्तव में यादृच्छिक नहीं है, तो OTP को तोडा जा सकता है। Python का `random` मॉड्यूल शायद यादृच्छिक संख्या पैदा करने का सबसे अच्छा तरीका नहीं है।
+- आपका संदेश OTP की शीट की लंबाई से अधिक लंबा नहीं हो सकता है। यदि आप सुनिश्चित नहीं हैं कि आपका संदेश कितना लम्बा होगा, तो बेहतर होगा कि ऐसे मामले में आप बड़ी शीट बनाए।
 
