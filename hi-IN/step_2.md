@@ -1,3 +1,3 @@
-## What you will need
+## आपको किन चीज़ों की आवश्यकता होगी
 
-- A computer with Python 3 installed
+- एक कंप्यूटर जिसमें Python 3 स्थापित(इंस्टॉल) किया गया हो
