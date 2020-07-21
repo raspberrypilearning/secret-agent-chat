@@ -1,6 +1,6 @@
-## What next?
+## आगे क्या?
 
-- Can you alter the program so that capital letters are preserved?
-- Can you alter the program so that punctuation is also encrypted?
-- Can you make your program delete the sheet from the OTP, once it's been used to encrypt or decrypt some text?
+- क्या आप प्रोग्राम को बदल सकते हैं ताकि बड़े अक्षर संरक्षित हों?
+- क्या आप प्रोग्राम को बदल सकते हैं ताकि विराम चिह्न भी एन्क्रिप्ट हो जाए?
+- क्या आप किसी प्रोग्राम को एन्क्रिप्ट या डिक्रिप्ट करने के लिए उपयोग किए जाने के बाद, OTP से शीट को हटा सकते हैं?
 
