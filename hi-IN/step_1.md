@@ -1,15 +1,15 @@
-## What you will make
-In this resource you will learn how to create and use an encryption technique known as the one-time pad. This method of encryption will allow you to send secret messages to your friends and, as long as you're careful, the messages will be *unbreakable*.
+## आप क्या बनाएँगे
+इस संसाधन में आप सीखेंगे कि वन-टाइम पैड के रूप में जानी जाने वाली एन्क्रिप्शन तकनीक का निर्माण और उपयोग कैसे करें। एन्क्रिप्शन की यह विधि, अपने दोस्तों को गुप्त संदेश भेजने में आपकी मदद करेगी और जब तक आप सावधान रहेंगे, संदेश *अटूट* होंगे।
 
-## What you will learn
-By writing the secret agent chat program, you will learn:
+## आप क्या सीखेंगे
+गुप्त जासूस बातचीत(Secret agent chat) का प्रोग्राम लिखकर, आप सीखेंगे:
 
-- How random numbers can be used to encrypt messages
-- How iteration can be used to encrypt individual characters
-- Why techniques such as the Caesar cipher are insecure
-- Why it's important to keep your keys a secret
+- संदेशों को एन्क्रिप्ट करने के लिए क्रमरहित(random) संख्याओं का उपयोग कैसे किया जा सकता है
+- एक-एक अक्षर को एन्क्रिप्ट करने के लिए कैसे पुनरावृत्ति(iteration) का उपयोग किया जा सकता है
+- सीज़र सिफर (Caesar cipher) जैसी तकनीक असुरक्षित क्यों हैं
+- अपनी कुंजी (keys) को गुप्त रखना महत्वपूर्ण क्यों है
 
-This resource covers elements from the following strands of the [Raspberry Pi Digital Making Curriculum](https://www.raspberrypi.org/curriculum/):
+इस संसाधन में [Raspberry Pi डिजिटल निर्माण पाठ्यक्रम](https://www.raspberrypi.org/curriculum/) के निम्नलिखित तत्वों के पहलू शामिल हैं:
 
-- [Combine programming constructs to solve a problem](https://www.raspberrypi.org/curriculum/programming/builder)
+- [किसी समस्या को हल करने के लिए प्रोग्रामिंग संरचनाओं को जोड़े](https://www.raspberrypi.org/curriculum/programming/builder)
 
