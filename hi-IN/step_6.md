@@ -1,6 +1,6 @@
-## Writing a secret message
+## गुप्त संदेश लिखना
 
-The next function is a really simple one: it asks the user to type in the message that will be encrypted. The only small addition is to convert all the letters to *lowercase*, as this will make it easier to encrypt without losing any meaning:
+अगला फ़ंक्शन वास्तव में सरल है: यह उपयोगकर्ता को उस संदेश में टाइप करने के लिए कहता है जिसे एन्क्रिप्ट किया जाएगा। एकमात्र छोटा जोड़, की सभी अक्षरों को *lowercase* में बदलना है, क्योंकि इससे बिना मतलब खोए एन्क्रिप्ट करने में आसानी होगी:
 
 ```python
 def get_plain_text():
