@@ -1,6 +1,6 @@
-## Full code listing
+## पूर्ण कोड सूची
 
-Your full code should look like this:
+आपका पूरा कोड इस तरह दिखना चाहिए:
 
 ```python
 from random import randint
@@ -90,7 +90,7 @@ def menu():
 menu()
 ```
 
-- Use the script to generate an OTP, encrypt a message and then decrypt the same message, to ensure that it's working correctly. Here's an example:
+- OTP जनरेट करने के लिए स्क्रिप्ट का उपयोग करें, संदेश को एन्क्रिप्ट करें और फिर उसी संदेश को डिक्रिप्ट करें, जिससे यह सुनिश्चित हो सके कि यह सही तरीके से काम कर रहा है। यहाँ एक उदाहरण है:
 
-![script output](images/screen5.png)
+![स्क्रिप्ट आउटपुट(script output)](images/screen5.png)
 
