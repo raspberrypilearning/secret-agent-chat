@@ -1,21 +1,21 @@
-## Encrypting a message
+## संदेश एन्क्रिप्ट करना
 
-Now comes the fun part: you're going to encrypt a message using a sheet from the one-time pad. This function will have two parameters. The first will be for a `string` that contains the plaintext message; the second will be for the one-time pad sheet that will be used.
+अब मजेदार हिस्सा आता है: आप वन-टाइम पैड से शीट का उपयोग करके एक संदेश को एन्क्रिप्ट करने जा रहे हैं। इस फ़ंक्शन के दो पैरामीटर होंगे। पहला `string` के लिए होगा जिसमें प्लेनटेक्स्ट संदेश शामिल है; दूसरा वन-टाइम पैड शीट के लिए होगा, जिसका उपयोग किया जाएगा।
 
-- To start with, you can define the function:
+- आरंभ करने के लिए, आप फ़ंक्शन को परिभाषित (define) कर सकते हैं:
 
     ```python
     def encrypt(plaintext, sheet):
     ```
 
-- Once you start encrypting the plaintext, you'll need to store the ciphertext. You can use an empty string to do this:
+- एक बार जब आप प्लेनटेक्स्ट को एन्क्रिप्ट करना शुरू कर देते हैं, तो आपको सिफरटेक्स्ट(ciphertext) को स्टोर करना होगा। आप ऐसा करने के लिए एक खाली स्ट्रिंग का उपयोग कर सकते हैं:
 
     ```python
     def encrypt(plaintext, sheet):
         ciphertext = ''
     ```
 
-- Now comes the clever part. This function is going to act on every character in the plaintext, a process called 'iteration'. While it's doing this, it needs to keep track of which character it's working on and what position that character has in the plaintext. To do this, you can use the built-in function `enumerate()`:
+- अब चतुर भाग आता है। यह फंक्शन प्लेनटेक्स्ट में हर अक्षर पर काम करने वाला है, एक प्रक्रिया जिसे 'इटरेशन' कहा जाता है। जब वह ऐसा कर रहा हो, तो उसे ट्रैक करने की जरूरत है कि वह किस अक्षर पर काम कर रहा है और उस अक्षर को प्लेनटेक्स्ट में किस स्थान पे रखा गया है। ऐसा करने के लिए, आप पहले से बनाया हुआ फ़ंक्शन `enumerate()` का उपयोग कर सकते हैं:
 
     ```python
     def encrypt(plaintext, sheet):
@@ -23,7 +23,7 @@ Now comes the fun part: you're going to encrypt a message using a sheet from the
         for position, character in enumerate(plaintext):
     ```
 
-- The next thing to do is check if the character from the plaintext is in the alphabet or not. In this program you're not going to bother encrypting spaces or punctuation, so if the character is not a letter, it can just be added to the ciphertext string. This is where we use that `ALPHABET` constant you wrote earlier:
+- आगे यह जांचना है की प्लेनटेक्स्ट का अक्षर वर्णमाला में है या नहीं। इस प्रोग्राम में आपको खाली जगह या विराम चिह्नों को एन्क्रिप्ट करने के बारे में परेशान नहीं होना हैं, इसलिए यदि वर्ण कोई अक्षर नहीं है, तो इसे सिफरटेक्स्ट(ciphertext) स्ट्रिंग में जोड़ा जा सकता है। यह वह जगह है जहाँ हम उस `ALPHABET` कॉन्स्टन्ट (constant) का उपयोग करते हैं, जो आपने पहले लिखा था:
 
     ```python
     def encrypt(plaintext, sheet):
@@ -33,14 +33,14 @@ Now comes the fun part: you're going to encrypt a message using a sheet from the
                 ciphertext += character
     ```
 
-- The next part is quite tricky to understand.
+- अगला हिस्सा समझने में थोड़ा मुश्किल है।
 
-    - Firstly, you need to find the position of the plaintext character in the alphabet - `ALPHABET.index(character)`.
-    - Then you need to add this number to the value from the equivalent position on the sheet from the OTP - `int(sheet[position])`.
-    - This new number needs to be converted back into a letter. If the new number was `0` it would become `a`, if it was `5` it would become `f` and so on. What if the number is greater than 25, though? If the number is `26` it needs to be changed to `0`, and if it's `30` it should be changed to `4`. To do this we can use the **modulo** operator (`%`), which finds the remainder after a division.
-    - Lastly, the number is converted to a letter.
+    - सबसे पहले, आपको वर्णमाला में प्लेनटेक्स्ट वर्ण की स्थिति को खोजना होगा - `ALPHABET.index(character)`।
+    - फिर आपको इस नंबर को OTP से शीट पर समकक्ष स्थिति से मूल्य में जोड़ना होगा - `int(sheet[position])` ।
+    - इस नई संख्या को वापस एक अक्षर में परिवर्तित करना होगा। यदि नई संख्या `0` थी, तो वह `a` बन जाएगी, यदि वह `5` थी, तो `f` बन जाएगी। क्या होगा यदि संख्या 25 से अधिक है? यदि संख्या `26` है, तो इसे `0` में बदलना होगा, और यदि `30` है, तो इसे `4` में बदलना होगा। ऐसा करने के लिए हम **modulo** ऑपरेटर (`%`) का उपयोग कर सकते हैं, जो विभाजन के बाद शेष का पता लगाता है।
+    - अंत में, संख्या को एक अक्षर में बदल दिया जाता है।
 
-- Putting that all together into your function, it would look like this:
+- सभी को एक साथ आपके फ़ंक्शन में रखकर, यह इस तरह दिखाई देगा:
 
     ```python
     def encrypt(plaintext, sheet):
@@ -53,7 +53,7 @@ Now comes the fun part: you're going to encrypt a message using a sheet from the
                 ciphertext += ALPHABET[encrypted]
     ```
 
-- You can finish off by returning the ciphertext:
+- आप सिफरटेक्स्ट(ciphertext) को वापस करके समाप्त कर सकते हैं:
 
     ```python
     def encrypt(plaintext, sheet):
@@ -68,12 +68,12 @@ Now comes the fun part: you're going to encrypt a message using a sheet from the
     ```
 
 
-- To test your function you can save and run your code and then type the following into the **shell**.
+- आपके फ़ंक्शन का परीक्षण करने के लिए आप अपना कोड सहेजें और चलाएं, और फिर **shell** में निम्नलिखित टाइप करें।
 
 ```python
 sheet = load_sheet('otp0.txt')
 encrypt('This is a secret message.', sheet)
 ```
 
-![encrypt output](images/screen3.png)
+![एन्क्रिप्ट आउटपुट(encrypt output)](images/screen3.png)
 
