@@ -1,14 +1,14 @@
-## Adding a menu
+## मेनू जोड़ना
 
-Although you now have working OTP generation, encryption and decryption, you should make the program a little easier for the user. This should include saving the encrypted text, so that it can be emailed to your friend.
+हालांकि अब आपके पास मौजूदा OTP जनरेशन, एन्क्रिप्शन और डिक्रिप्शन है, लेकिन आपको उपयोगकर्ता के लिए प्रोग्राम को थोड़ा आसान बनाना चाहिए। इसमें एन्क्रिप्ट किए गए टेक्स्ट को सहेजना शामिल होना चाहिए, ताकि इसे आपके मित्र को ईमेल किया जा सके।
 
-- You can begin by defining a new function for the menu:
+- आप मेनू के लिए एक नया फ़ंक्शन निर्धारित करके शुरू कर सकते हैं:
 
     ```python
     def menu():
     ```
 
-- You're going to give the user 4 choices in the menu. It should just loop if their choice isn't 1, 2, 3 or 4:
+- आप मेनू में उपयोगकर्ता को 4 विकल्प देने जा रहे हैं। अगर उनकी पसंद 1, 2, 3 या 4 नहीं है, तो वापस से पसंद पूछनी चाहिए:
 
     ```python
     def menu():
@@ -18,7 +18,7 @@ Although you now have working OTP generation, encryption and decryption, you sho
             while choice not in choices:
     ```
 
-- Next, you can add in the options for the menu, and save their `choice` as a variable:
+- आगे, आप मेनू के लिए विकल्प जोड़ सकते हैं, और उनकी `choice` को एक वेरिएबल के रूप में सहेज सकते हैं:
 
     ```python
     def menu():
@@ -34,7 +34,7 @@ Although you now have working OTP generation, encryption and decryption, you sho
                 choice = input('Please type 1, 2, 3 or 4 and press Enter ')
     ```
 
-- If option 1 is chosen, then the user needs to be asked how many sheets they want to generate and how long the sheets should be. These values can then be fed into the `generate_otp` function:
+- यदि विकल्प 1 चुना जाता है, तो उपयोगकर्ता को यह पूछना चाहिए कि वे कितनी शीट उत्पन्न करना चाहते हैं और शीट कितनी लंबी होनी चाहिए। फिर इन मूल्य(values) को `generate_otp` फ़ंक्शन में जोड़ा जा सकता है:
 
     ```python
     if choice == '1':
@@ -43,7 +43,7 @@ Although you now have working OTP generation, encryption and decryption, you sho
         generate_otp(sheets, length)
     ```
 
-- If they choose option 2, then you need to get the name of the sheet they wish to use and the message they want to write. Then the message can be encrypted and saved with a name of their choosing:
+- यदि वे विकल्प 2 चुनते हैं, तो आपको उस शीट का नाम प्राप्त करने की आवश्यकता होगी जिसे वे उपयोग करना चाहते हैं और वह संदेश जो वे लिखना चाहते हैं। फिर संदेश को उनके चयन के नाम के साथ एन्क्रिप्ट और सहेजा जा सकता है:
 
     ```python
     elif choice == '2':
@@ -55,7 +55,7 @@ Although you now have working OTP generation, encryption and decryption, you sho
         save_file(filename, ciphertext)
     ```
 
-- If they choose option 3, then you need to get the name of the sheet used to encrypt the file and the name for the file to be decrypted. The file can then be opened, decrypted, and the contents printed out:
+- यदि वे विकल्प 3 चुनते हैं, तो आपको फ़ाइल को एन्क्रिप्ट करने के लिए उपयोग की जाने वाली शीट का नाम और फ़ाइल को डिक्रिप्ट किए जाने वाले नाम की आवश्यकता होगी। तब फ़ाइल खोली जा सकती है, डिक्रिप्ट की जा सकती है और फ़ाइल की सामग्री प्रिंट की जा सकती है:
 
     ```python
     elif choice == '3':
@@ -69,14 +69,14 @@ Although you now have working OTP generation, encryption and decryption, you sho
         print(plaintext)
     ```
 
-- If they choose 4 then the program should exit:
+- यदि वे 4 चुनते हैं तो प्रोग्राम से बाहर निकल जाना चाहिए:
 
     ```python
     elif choice == '4':
         exit()
     ```
 
-- You need to reset the `choice` variable at the end of the function, so that the loop will continue around. Your entire function should now look like this:
+- आपको फ़ंक्शन के अंत में `choice` वेरिएबल को रीसेट करने की आवश्यकता होगी, ताकि फिर से लूप जारी रहे। अब आपका पूरा फंक्शन इस तरह दिखना चाहिए:
 
     ```python
     def menu():
@@ -115,7 +115,7 @@ Although you now have working OTP generation, encryption and decryption, you sho
                 choice = '0'
     ```
 
-- To finish off the code, you just need to add a call to the `menu()` function:
+- कोड समाप्त करने के लिए, आपको केवल `menu()` फ़ंक्शन में कॉल (call) जोड़ना होगा:
 
 ```python
 menu()
