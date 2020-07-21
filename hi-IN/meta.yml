@@ -1,7 +1,7 @@
 ---
-title: Secret Agent Chat
+title: गुप्त जासूस बातचीत(Secret Agent Chat)
 hero_image: images/banner.png
-description: Learn how to send unbreakable encrypted messages with Python
+description: Python से अटूट एन्क्रिप्टेड (encrypted) संदेश भेजना सीखीए
 original_url: https://raspberrypi.org/learning/secret-agent-chat
 theme: orange
 duration: 2
@@ -18,28 +18,28 @@ version: 3
 last_tested: 2017-01-01
 steps:
   - 
-    title: Introduction
+    title: परिचय
   - 
-    title: What you will need
+    title: आपको किन चीजों की आवश्यकता होगी
   - 
-    title: Secret agent chat
+    title: गुप्त जासूस बातचीत
   - 
-    title: Generating a one-time pad
+    title: वन-टाइम पैड बनाना
   - 
-    title: Loading a sheet from the OTP
+    title: OTP से पत्र लोड करना
   - 
-    title: Writing a secret message
+    title: गुप्त संदेश लिखना
   - 
-    title: Loading and saving the messages
+    title: संदेशों को लोड करना और सहेजना
   - 
-    title: Encrypting a message
+    title: संदेश एन्क्रिप्ट करना
   - 
-    title: Decrypting messages
+    title: संदेशों को डिक्रिप्ट करना
   - 
-    title: Adding a menu
+    title: मेनू जोड़ना
   - 
-    title: Full code listing
+    title: पूर्ण कोड सूची
   - 
-    title: Using the program
+    title: प्रोग्राम का उपयोग करना
   - 
-    title: What next?
+    title: आगे क्या?
