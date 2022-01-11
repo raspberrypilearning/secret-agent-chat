@@ -16,9 +16,10 @@ hardware: ''
 software: python
 version: 3
 last_tested: 2017-01-01
-steps: 
+steps:
 - title: Introduction
 - title: What you will need
+  completion: engaged
 - title: Secret agent chat
 - title: Generating a one-time pad
 - title: Loading a sheet from the OTP
@@ -28,5 +29,6 @@ steps:
 - title: Decrypting messages
 - title: Adding a menu
 - title: Full code listing
+  completion: internal
 - title: Using the program
 - title: What next?
