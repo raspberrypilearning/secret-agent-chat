@@ -19,9 +19,10 @@ last_tested: 2017-01-01
 steps:
 - title: Introduction
 - title: What you will need
-  completion: engaged
 - title: Secret agent chat
 - title: Generating a one-time pad
+  completion:
+  - engaged
 - title: Loading a sheet from the OTP
 - title: Writing a secret message
 - title: Loading and saving the messages
@@ -29,6 +30,7 @@ steps:
 - title: Decrypting messages
 - title: Adding a menu
 - title: Full code listing
-  completion: internal
 - title: Using the program
+  completion:
+  - internal
 - title: What next?
